@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div><a href="./stations/02336240">Johnson Rd & South Fork P'tree Creek (near Zonolite Park)</a></div>
+    <div><a href="./stations/02336300">Northside Pkwy & P'tree Creek (near Memorial Park)</a></div>
+    <div><a href="./stations/02336360">Rickenbacker Dr & Nancy Creek (near Blue Heron Nature Preserve)</a></div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
 }
 </script>
+
+<style lang="scss">
+body {
+  font-size: 18px;
+}
+</style>
