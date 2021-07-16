@@ -1,18 +1,18 @@
 <template>
-  <div class="kpi" :style="style">
-    <div class="kpi__name">{{ statisticName }}</div>
-    <div class="kpi__value">{{ value }}</div>
-    <div class="kpi__date">{{ date }} {{ time }}</div>
+  <div class="py-20" :style="style">
+    <div>{{ statisticName }}</div>
+    <div class="text-5xl">{{ value }}</div>
+    <div>{{ date }} {{ time }}</div>
   </div>
 </template>
 
 <script>
-import { colors } from '../util.js'
+const colors = require('tailwindcss/colors')
 
 export default {
   name: 'GenericData',
   props: {
-    colorName: String,
+    colorValue: String,
     statisticName: String,
     value: String,
     dateTime: String
@@ -23,7 +23,7 @@ export default {
     },
     style() {
       return {
-        backgroundColor: colors[this.colorName]
+        backgroundColor: colors.blue[this.colorValue]
       }
     },
     time() {
@@ -34,10 +34,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.kpi {
-  text-align: center;
-}
-.kpi__value {
-  font-size: 40px;
-}
 </style>

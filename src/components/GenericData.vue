@@ -1,20 +1,20 @@
 <template>
   <div class="generic-data">
-    <div class="kpis">
+    <div class="grid grid-cols-3">
       <KPI
-        colorName="blue5"
+        colorValue="50"
         :dateTime="minValue.dateTime"
         statisticName="Min over last 7 days"
         :value="minValue.value"
       />
       <KPI
-        :colorName="color"
+        :colorValue="color"
         :dateTime="latestValue.dateTime"
         statisticName="Current"
         :value="latestValue.value"
       />
       <KPI
-        colorName="blue80"
+        colorValue="700"
         :dateTime="maxValue.dateTime"
         statisticName="Max over last 7 days"
         :value="maxValue.value"
@@ -30,7 +30,8 @@
 <script>
 import Chart from 'chart.js'
 import KPI from '@/components/KPI.vue'
-import { colors, getColor } from '../util.js'
+import { getColor } from '../util.js'
+const colors = require('tailwindcss/colors')
 
 import { last, map, maxBy, minBy, toNumber } from 'lodash'
 
@@ -93,8 +94,8 @@ export default {
           },
           elements: {
             line: {
-              backgroundColor: colors.blue5,
-              borderColor: colors.blue100,
+              backgroundColor: colors.blue[50],
+              borderColor: colors.blue[300],
               borderWidth: 1
             },
             point: {
@@ -127,20 +128,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.kpis {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 .spark-chart {
-  margin: 0 auto;
+  @apply my-0 mx-auto;
 }
 
 .spark-chart__caption {
-  font-size: 12px;
+  @apply text-xs;
 }
 
 canvas {
-  display: inline-block!important;
+  @apply inline-block #{!important};
 }
 </style>

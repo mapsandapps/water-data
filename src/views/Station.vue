@@ -1,7 +1,5 @@
 <template>
   <div class="station">
-    <div>Site code: {{ siteCode }}</div>
-    <div><a :href="`https://waterdata.usgs.gov/monitoring-location/${$route.params.id}`" target="_blank">View on USGS</a></div>
     <div v-if="loading">
       Loading...
     </div>
@@ -9,11 +7,13 @@
       <div>
         Site name: {{ sourceInfo.siteName }}
       </div>
+      <div>Site code: {{ siteCode }}</div>
+      <div><a :href="`https://waterdata.usgs.gov/monitoring-location/${$route.params.id}`" target="_blank">View on USGS</a></div>
       <div
         v-for="data in info"
         v-bind:key="data.variable.variableCode.variableID"
       >
-        <div class="station__variable-name">
+        <div class="font-bold pt-12 text-3xl">
           {{ data.variable.variableDescription }}
         </div>
         <GenericData
@@ -64,9 +64,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.station__variable-name {
-  font-size: 24px;
-  font-weight: 700;
-  padding-top: 48px;
-}
 </style>
